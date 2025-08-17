@@ -6,9 +6,9 @@ export default function App() {
   const mapsUrl = 'https://maps.app.goo.gl/your-place-link'
   const whatsapp = '966500000000'
   const gallery = [
-     'puplic/projects/offerForMarej.png',
-    'https://images.unsplash.com/photo-1545116178-4e7f0ae72b41?q=80&w=1200&auto=format&fit=crop',
-     'https://images.unsplash.com/photo-1545116178-4e7f0ae72b41?q=80&w=1200&auto=format&fit=crop'
+     '/projects/salon-c.webp',
+    '/projects/salon-a.jpeg',
+     '/projects/salon-b.jpg'
   ]
   const update = (e) => setForm({ ...form, [e.target.name]: e.target.value })
   const submit = (e) => {
