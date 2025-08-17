@@ -79,7 +79,7 @@ export default function App() {
         </header>
 
 
-      <section className="relative" style={{backgroundImage:'linear-gradient(rgba(250,216,231,.55), rgba(255,247,251,.85)), url(', backgroundSize:'cover', backgroundPosition:'center'}}>
+      <section className="relative" style={{backgroundImage:'linear-gradient(rgba(250,216,231,.55), rgba(255,247,251,.85)), url(projects/salon-backg.jpg', backgroundSize:'cover', backgroundPosition:'center'}}>
         <div className="container-lg py-16 md:py-24 text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="badge mx-auto mb-4">صالون نسائي فاخر</motion.div>
           <motion.h1 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="text-3xl md:text-5xl font-extrabold mb-4">لجمالك لمسة... ولأناقتك تميّز</motion.h1>
