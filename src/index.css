@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+.container-lg { @apply max-w-6xl mx-auto px-4; }
+
+.btn-primary { @apply bg-brand-pink text-white px-5 py-3 rounded-full font-semibold hover:opacity-95 transition; }
+.btn-ghost { @apply border border-brand-pink text-brand-pink px-5 py-3 rounded-full font-semibold hover:bg-brand-pink hover:text-white transition; }
+
+.card { @apply bg-white text-brand-ink rounded-2xl shadow-card p-6 border border-brand-blush; }
+
+.section { @apply py-14 md:py-16; }
+
+.badge { @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold; background: rgba(233,30,99,0.08); color: #E91E63; border: 1px solid rgba(233,30,99,0.25); }
+
+h1,h2,h3 { @apply tracking-wide; }
+
+.card-hover { @apply transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02]; }
+.reveal { @apply overflow-hidden transition-all duration-300 max-h-0 opacity-0; }
