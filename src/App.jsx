@@ -37,7 +37,7 @@ export default function App() {
         <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-brand-blush/60 safe-top">
             <div className="container-lg flex items-center justify-between py-3">
                 <div className="flex items-center gap-3">
-                    <img src="" alt="شعار لمسة أناقة" className="w-10 h-10" />
+                    <img src="projects/logo-av1.png" alt="شعار لمسة أناقة" className="w-10 h-10" />
                     <div className="font-extrabold text-brand-pink text-xl">لمسة أناقة</div>
                 </div>
 
