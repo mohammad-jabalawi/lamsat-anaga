@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Phone, Mail, MapPin, Scissors, Wind, Sparkles, Layers, Palette, Gem, CheckCircle2, Instagram, Facebook, MessageCircle, Globe } from 'lucide-react'
+import { Phone, Mail, MapPin, Scissors, Wind, Sparkles, Layers, Palette, Gem, CheckCircle2, Instagram, Facebook, MessageCircle, Globe, Menu } from 'lucide-react'
 import { motion } from 'framer-motion'
 export default function App() {
   const [form, setForm] = useState({ name: '', phone: '', service: 'قص الشعر', message: '' })
@@ -29,26 +29,55 @@ export default function App() {
   const stagger = { show: { transition: { staggerChildren: 0.12 } } }
   const [openIdx, setOpenIdx] = useState(null)
   const toggle = (i) => setOpenIdx(openIdx === i ? null : i)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
     return (
     <div dir="rtl" className="font-sans text-brand-ink bg-brand-light">
-      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-brand-blush/60">
-        <div className="container-lg flex items-center justify-between py-3">
-          <div className="flex items-center gap-3">
-            <img src="" alt="شعار لمسة أناقة" className="w-10 h-10" />
-            <div className="font-extrabold text-brand-pink text-xl">لمسة أناقة</div>
-          </div>
-          <nav className="hidden md:flex items-center gap-4 md:gap-6 text-sm">
-            <a href="#services" className="hover:text-brand-pink">الخدمات</a>
-            <a href="#process" className="hover:text-brand-pink">آلية العمل</a>
-            <a href="#gallery" className="hover:text-brand-pink">المعرض</a>
-            <a href={mapsUrl} target="_blank" rel="noreferrer" className="hover:text-brand-pink flex items-center gap-1">
-              <MapPin className="w-4 h-4" /> موقعنا
-            </a>
-            <a href="#contact" className="btn-primary text-sm">احجزي الآن</a>
-          </nav>
-        </div>
-      </header>
+
+        <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-brand-blush/60 safe-top">
+            <div className="container-lg flex items-center justify-between py-3">
+                <div className="flex items-center gap-3">
+                    <img src="" alt="شعار لمسة أناقة" className="w-10 h-10" />
+                    <div className="font-extrabold text-brand-pink text-xl">لمسة أناقة</div>
+                </div>
+
+                {/* أزرار الموبايل */}
+                <button
+                    className="md:hidden p-2 rounded-lg border border-brand-pink/30 text-brand-pink"
+                    onClick={() => setMobileOpen(v => !v)}
+                    aria-label="فتح القائمة"
+                >
+                    {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
+
+                {/* قائمة الديسكتوب */}
+                <nav className="hidden md:flex items-center gap-4 md:gap-6 text-sm">
+                    <a href="#services" className="hover:text-brand-pink">الخدمات</a>
+                    <a href="#process" className="hover:text-brand-pink">آلية العمل</a>
+                    <a href="#gallery" className="hover:text-brand-pink">المعرض</a>
+                    <a href={mapsUrl} target="_blank" rel="noreferrer" className="hover:text-brand-pink flex items-center gap-1">
+                        <MapPin className="w-4 h-4" /> موقعنا
+                    </a>
+                    <a href="#contact" className="btn-primary text-sm">احجزي الآن</a>
+                </nav>
+            </div>
+
+            {/* قائمة الموبايل المنسدلة */}
+            {mobileOpen && (
+                <div className="md:hidden border-t border-brand-blush/60 bg-white/95 backdrop-blur">
+                    <div className="container-lg py-3 flex flex-col gap-3 text-sm">
+                        <a onClick={()=>setMobileOpen(false)} href="#services" className="hover:text-brand-pink">الخدمات</a>
+                        <a onClick={()=>setMobileOpen(false)} href="#process" className="hover:text-brand-pink">آلية العمل</a>
+                        <a onClick={()=>setMobileOpen(false)} href="#gallery" className="hover:text-brand-pink">المعرض</a>
+                        <a onClick={()=>setMobileOpen(false)} href={mapsUrl} target="_blank" rel="noreferrer" className="hover:text-brand-pink flex items-center gap-1">
+                            <MapPin className="w-4 h-4" /> موقعنا
+                        </a>
+                        <a onClick={()=>setMobileOpen(false)} href="#contact" className="btn-primary text-center">احجزي الآن</a>
+                    </div>
+                </div>
+            )}
+        </header>
+
 
       <section className="relative" style={{backgroundImage:'linear-gradient(rgba(250,216,231,.55), rgba(255,247,251,.85)), url(', backgroundSize:'cover', backgroundPosition:'center'}}>
         <div className="container-lg py-16 md:py-24 text-center">
@@ -154,18 +183,45 @@ export default function App() {
             </motion.div>
             <motion.form onSubmit={submit} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} className="card">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input name="name" value={form.name} onChange={update} placeholder="الاسم" className="w-full p-3 rounded bg-white border border-white/15" required />
-                <input name="phone" value={form.phone} onChange={update} placeholder="الجوال" className="w-full p-3 rounded bg-white border border-white/15" required />
-                <select name="service" value={form.service} onChange={update} className="w-full p-3 rounded bg-white border border-white/15">
+                  <input
+                      name="name"
+                      value={form.name}
+                      onChange={update}
+                      placeholder="الاسم"
+                      className="w-full p-3 rounded-xl border border-brand-pink/30 bg-white
+                       focus:outline-none focus:ring-2 focus:ring-brand-pink/30 focus:border-brand-pink"
+                      required
+                  />
+                  <input
+                      name="phone"
+                      value={form.phone}
+                      onChange={update}
+                      placeholder="الجوال"
+                      className="w-full p-3 rounded-xl border border-brand-pink/30 bg-white
+                        focus:outline-none focus:ring-2 focus:ring-brand-pink/30 focus:border-brand-pink"
+                      required
+                  />
+                <select name="service" value={form.service} onChange={update}
+                        className="w-full p-3 rounded-xl border border-brand-pink/30 bg-white
+                          focus:outline-none focus:ring-2 focus:ring-brand-pink/30 focus:border-brand-pink">
                   <option>قص الشعر</option>
                   <option>استشوار</option>
                   <option>مكياج</option>
                   <option>العناية بالأظافر</option>
                   <option>وصلات الشعر</option>
                   <option>صبغة الشعر</option>
+                  <option>أخرى</option>
                 </select>
               </div>
-              <textarea name="message" value={form.message} onChange={update} placeholder="الرسالة" rows="4" className="w-full p-3 rounded bg-white border border-white/15 mt-4" />
+                <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={update}
+                    placeholder="الرسالة"
+                    rows="4"
+                    className="w-full p-3 rounded-xl border border-brand-pink/30 bg-white mt-4
+                     focus:outline-none focus:ring-2 focus:ring-brand-pink/30 focus:border-brand-pink"
+                />
               <div className="flex flex-wrap gap-3 mt-4 justify-end">
                 <button type="submit" className="btn-primary">إرسال عبر واتساب</button>
                 <a href={`tel:+${whatsapp}`} className="btn-ghost">اتصلي الآن</a>
