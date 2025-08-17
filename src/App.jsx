@@ -80,10 +80,10 @@ export default function App() {
 
 
       <section className="relative" style={{backgroundImage:'linear-gradient(rgba(250,216,231,.55), rgba(255,247,251,.85)), url(projects/salon-backg.jpg', backgroundSize:'cover', backgroundPosition:'center'}}>
-        <div className="container-lg py-16 md:py-24 text-center">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="badge mx-auto mb-4">صالون نسائي فاخر</motion.div>
-          <motion.h1 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="text-3xl md:text-5xl font-extrabold mb-4">لجمالك لمسة... ولأناقتك تميّز</motion.h1>
-          <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="max-w-2xl mx-auto mb-6 md:mb-8 text-brand-ink/80">خدمات قص الشعر، المكياج، العناية بالأظافر، والوصلات والصبغات بأيدٍ محترفة.</motion.p>
+        <div className="container-lg py-40 md:py-40 text-center">
+          {/*<motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="badge mx-auto mb-4">صالون نسائي فاخر</motion.div>*/}
+          <motion.h1 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="text-3xl md:text-5xl font-extrabold mb-4 mt-8">لجمالك لمسة... ولأناقتك تميّز</motion.h1>
+          {/*<motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="max-w-2xl mx-auto mb-6 md:mb-8 text-brand-ink/80">خدمات قص الشعر، المكياج، العناية بالأظافر، والوصلات والصبغات بأيدٍ محترفة.</motion.p>*/}
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <motion.a variants={fadeUp} href="#contact" className="btn-primary">احجزي موعد</motion.a>
             <motion.a variants={fadeUp} href={`https://wa.me/${whatsapp}`} className="btn-ghost flex items-center gap-2"><MessageCircle className="w-4 h-4" /> تواصلي واتساب</motion.a>
