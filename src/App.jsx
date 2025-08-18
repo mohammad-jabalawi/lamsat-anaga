@@ -17,12 +17,12 @@ export default function App() {
     window.open(`https://wa.me/${whatsapp}?text=${txt}`, '_blank')
   }
     const services = [
-        { icon: <Scissors className="w-10 h-10 text-brand-pink" />, title: 'قص الشعر', price: '120 ريال', desc: 'قص احترافي يناسب ملامحك وشكلك.', notes: ['استشارة قبل القص', 'غسيل وتجفيف خفيف'] },
-        { icon: <Wind className="w-10 h-10 text-brand-pink" />, title: 'استشوار', price: '80 ريال', desc: 'تصفيف ولمسات نهائية تدوم أطول.', notes: ['حماية حرارية', 'فرش ولمسة نهائية'] },
-        { icon: <Sparkles className="w-10 h-10 text-brand-pink" />, title: 'مكياج', price: '250 ريال', desc: 'إطلالات يومية وسهرات مع خامات فاخرة.', notes: ['رموش اختيارية', 'تثبيت طويل'] },
-        { icon: <Gem className="w-10 h-10 text-brand-pink" />, title: 'العناية بالأظافر', price: '90 ريال', desc: 'تنظيف وتجميل بأدوات معقمة ولمسة راقية.', notes: ['تعقيم كامل', 'تشكيل ولمعان'] },
-        { icon: <Layers className="w-10 h-10 text-brand-pink" />, title: 'وصلات الشعر', price: 'ابتداءً من 400 ريال', desc: 'تركيب احترافي ومظهر طبيعي.', notes: ['مطابقة لون', 'تركيب غير مرئي'] },
-        { icon: <Palette className="w-10 h-10 text-brand-pink" />, title: 'صبغة الشعر', price: 'ابتداءً من 300 ريال', desc: 'ألوان عصرية مع حماية ولمعان.', notes: ['اختبار خصلة', 'حماية ولمعان'] },
+        { img: 'services/haircut.jpg', title: 'قص الشعر', price: '120 ريال', desc: 'قص احترافي يناسب ملامحك وشكلك.', notes: ['استشارة قبل القص', 'غسيل وتجفيف خفيف'] },
+        { img: 'services/Hair-dryer.jpg' , title: 'استشوار', price: '80 ريال', desc: 'تصفيف ولمسات نهائية تدوم أطول.', notes: ['حماية حرارية', 'فرش ولمسة نهائية'] },
+        { img: 'services/mackup.webp' , title: 'مكياج', price: '250 ريال', desc: 'إطلالات يومية وسهرات مع خامات فاخرة.', notes: ['رموش اختيارية', 'تثبيت طويل'] },
+        { img: 'services/nail-care.webp' , title: 'العناية بالأظافر', price: '90 ريال', desc: 'تنظيف وتجميل بأدوات معقمة ولمسة راقية.', notes: ['تعقيم كامل', 'تشكيل ولمعان'] },
+        { img: 'services/massage.webp', title: 'مساج', price: 'ابتداءً من 190 ريال', desc: 'استمتعي برحلة الاسترخاء الكامل مع جلسة مساج تنعش الجسم .', notes: ['تنعش الجسد', 'استرخاء كامل'] },
+        { img: 'services/hair-color.webp', title: 'صبغة الشعر', price: 'ابتداءً من 300 ريال', desc: 'ألوان عصرية مع حماية ولمعان.', notes: ['اختبار خصلة', 'حماية ولمعان'] },
 
   ]
   const fadeUp = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }
@@ -113,7 +113,19 @@ export default function App() {
                     onClick={() => toggle(i)} // للجوال: الضغط يفتح/يقفل التفاصيل
                     className="card group card-hover text-center cursor-pointer select-none"
                 >
-                    <div className="mb-4 flex justify-center">{s.icon}</div>
+                    {/*<div className="mb-4 flex justify-center">{s.icon}</div>*/}
+                    <div className="mb-4 flex justify-center">
+                        {s.img ? (
+                            <img
+                                src={s.img}
+                                alt={s.title}
+                                loading="lazy"
+                                className="w-60 h-40 object-cover rounded-xl ring-2 ring-brand-pink/30 shadow-card"
+                            />
+                        ) : (
+                            s.icon
+                        )}
+                    </div>
                     <h3 className="text-lg md:text-xl font-semibold mb-1">{s.title}</h3>
                     <p className="text-gray-600 text-sm md:text-base">{s.desc}</p>
 
@@ -132,11 +144,6 @@ export default function App() {
                     </div>
                 </div>
 
-                // <motion.div key={i} variants={fadeUp} className="card text-center">
-              //   <div className="mb-4 flex justify-center">{s.icon}</div>
-              //   <h3 className="text-lg md:text-xl font-semibold mb-2">{s.title}</h3>
-              //   <p className="text-gray-300 text-sm md:text-base">{s.desc}</p>
-              // </motion.div>
             ))}
           </motion.div>
         </div>
