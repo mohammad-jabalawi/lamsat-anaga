@@ -18,7 +18,7 @@ export default function App() {
   }
     const services = [
         { img: 'services/haircut.jpg', title: 'قص الشعر', price: '120 ريال', desc: 'قص احترافي يناسب ملامحك وشكلك.', notes: ['استشارة قبل القص', 'غسيل وتجفيف خفيف'] },
-        { img: 'services/Hair-dryer.jpg' , title: 'استشوار', price: '80 ريال', desc: 'تصفيف ولمسات نهائية تدوم أطول.', notes: ['حماية حرارية', 'فرش ولمسة نهائية'] },
+        { img: 'services/hair-dryer2.jpg' , title: 'استشوار', price: '80 ريال', desc: 'تصفيف ولمسات نهائية تدوم أطول.', notes: ['حماية حرارية', 'فرش ولمسة نهائية'] },
         { img: 'services/mackup.webp' , title: 'مكياج', price: '250 ريال', desc: 'إطلالات يومية وسهرات مع خامات فاخرة.', notes: ['رموش اختيارية', 'تثبيت طويل'] },
         { img: 'services/nail-care.webp' , title: 'العناية بالأظافر', price: '90 ريال', desc: 'تنظيف وتجميل بأدوات معقمة ولمسة راقية.', notes: ['تعقيم كامل', 'تشكيل ولمعان'] },
         { img: 'services/massage.webp', title: 'مساج', price: 'ابتداءً من 190 ريال', desc: 'استمتعي برحلة الاسترخاء الكامل مع جلسة مساج تنعش الجسم .', notes: ['تنعش الجسد', 'استرخاء كامل'] },
