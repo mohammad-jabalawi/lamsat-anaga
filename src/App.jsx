@@ -35,7 +35,13 @@ export default function App() {
     <div dir="rtl" className="font-sans text-brand-ink bg-brand-light">
 
         <header className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-brand-blush/60 safe-top">
-            <div className="container-lg flex items-center justify-between py-3">
+            <div className="container-lg flex items-center justify-between py-3"
+                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                 onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && window.scrollTo({ top: 0, behavior: 'smooth' })}
+                 role="button"
+                 tabIndex={0}
+                 aria-label="العودة لأعلى الصفحة"
+            >
                 <div className="flex items-center gap-3">
                     <img src="projects/logo-av1.png" alt="شعار لمسة أناقة" className="w-10 h-10" />
                     <div className="font-extrabold text-brand-pink text-xl">لمسة أناقة</div>
@@ -46,6 +52,7 @@ export default function App() {
                     className="md:hidden p-2 rounded-lg border border-brand-pink/30 text-brand-pink"
                     onClick={() => setMobileOpen(v => !v)}
                     aria-label="فتح القائمة"
+                    aria-expanded={mobileOpen}
                 >
                     {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>
@@ -65,6 +72,15 @@ export default function App() {
             {/* قائمة الموبايل المنسدلة */}
             {mobileOpen && (
                 <div className="md:hidden border-t border-brand-blush/60 bg-white/95 backdrop-blur">
+                    <div className="absolute inset-0 bg-black/30" onClick={() => setMobileOpen(false)} />
+                    {/* اللوحة */}
+                    <div className="absolute right-0 top-0 h-full w-72 bg-white shadow-xl border-l border-brand-blush/60 p-4">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="font-bold text-brand-pink">القائمة</span>
+                            <button onClick={() => setMobileOpen(false)} aria-label="إغلاق">
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
                     <div className="container-lg py-3 flex flex-col gap-3 text-sm">
                         <a onClick={()=>setMobileOpen(false)} href="#services" className="hover:text-brand-pink">الخدمات</a>
                         <a onClick={()=>setMobileOpen(false)} href="#process" className="hover:text-brand-pink">آلية العمل</a>
@@ -75,6 +91,7 @@ export default function App() {
                         <a onClick={()=>setMobileOpen(false)} href="#contact" className="btn-primary text-center">احجزي الآن</a>
                     </div>
                 </div>
+                </div>
             )}
         </header>
 
@@ -82,7 +99,7 @@ export default function App() {
       <section className="relative" style={{backgroundImage:'linear-gradient(rgba(250,216,231,.55), rgba(255,247,251,.85)), url(projects/salon-backg.jpg', backgroundSize:'cover', backgroundPosition:'center'}}>
         <div className="container-lg py-40 md:py-40 text-center">
           {/*<motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="badge mx-auto mb-4">صالون نسائي فاخر</motion.div>*/}
-          <motion.h1 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="text-3xl md:text-5xl font-extrabold mb-4 mt-8">لجمالك لمسة... ولأناقتك تميّز</motion.h1>
+          <motion.h1 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="text-3xl md:text-5xl font-extrabold mb-4 mt-80">لجمالك لمسة... ولأناقتك تميّز</motion.h1>
           {/*<motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="max-w-2xl mx-auto mb-6 md:mb-8 text-brand-ink/80">خدمات قص الشعر، المكياج، العناية بالأظافر، والوصلات والصبغات بأيدٍ محترفة.</motion.p>*/}
           <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }} className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <motion.a variants={fadeUp} href="#contact" className="btn-primary">احجزي موعد</motion.a>
